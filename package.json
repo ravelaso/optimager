@@ -1,5 +1,5 @@
 {
-  "name": "optimager",
+  "name": "@ravelaso/optimager",
   "version": "1.0.0",
   "keywords": [],
   "author": "@ravelaso",
@@ -7,6 +7,13 @@
   "description": "Optimizes Images converting them to webp, it uses Sharp to convert images.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ravelaso/optimager.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "scripts": {
     "build": "tsc",
     "convertimage": "node dist/index.js"
