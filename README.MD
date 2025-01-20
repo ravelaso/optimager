@@ -20,8 +20,8 @@ You can specify, in order, a list of folders to include.
 {
     "inputFolders": ["src/content/images", "src/content/images2"],
     "outputFolders": ["public/images", "src/assets/images2"],
-    "cleanInput": "false", // This will leave the un-optimized images intact in their folder. 
-    "cleanOutput": "true" // This will clean the output folder before converting again the images on every build.
+    "cleanInput": false, // This will leave the un-optimized images intact in their folder. 
+    "cleanOutput": true // This will clean the output folder before converting again the images on every build.
 }
 ```
 
@@ -59,8 +59,8 @@ When setting ``cleanInput`` to true, we will delete all images after conversion 
 {
     "inputFolders": ["inputImages"],
     "outputFolders": ["src/assets/images"],
-    "cleanInput": "true",
-    "cleanOutput": "false"
+    "cleanInput": true,
+    "cleanOutput": false
 }
 ```
 
