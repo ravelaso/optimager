@@ -8,22 +8,49 @@ import path from 'path';
 interface OptimagerConfig {
     inputFolders: string[];
     outputFolders: string[];
+    cleanInput?: boolean;
+    cleanOutput?: boolean;
 }
 
-function clearOutputFolders(outputFolders: string[]): void {
-    outputFolders.forEach((outputFolder) => {
-        if (fs.existsSync(outputFolder)) {
-            fs.readdirSync(outputFolder).forEach((file) => {
-                fs.unlinkSync(`${outputFolder}/${file}`);
+function cleanFolders(Folders: string[]): void {
+    Folders.forEach((folder) => {
+        if (fs.existsSync(folder)) {
+            fs.readdirSync(folder).forEach((file) => {
+                fs.unlinkSync(`${folder}/${file}`);
             });
         }
     });
 }
 
-function convertImagesToWebp(config: OptimagerConfig): void {
-    const { inputFolders, outputFolders } = config;
 
-    clearOutputFolders(outputFolders);
+function runProcess(config: OptimagerConfig): void {
+    const { inputFolders, outputFolders, cleanInput, cleanOutput } = config;
+
+    switch (cleanInput){
+        case true:
+            cleanFolders(inputFolders)
+            break
+        case false:
+            break
+        default:
+            break
+    }
+
+    switch (cleanOutput){
+        case true:
+            cleanFolders(outputFolders)
+            break
+        case false:
+            break
+        default:
+            cleanFolders(outputFolders)
+    }
+
+    convertImagesToWebp(inputFolders, outputFolders)
+
+}
+
+function convertImagesToWebp(inputFolders: string[], outputFolders: string[]): void {
 
     inputFolders.forEach((inputFolder, index) => {
         if (!fs.existsSync(outputFolders[index])) {
@@ -56,7 +83,7 @@ function loadConfig(): OptimagerConfig {
 function run(): void {
     try {
         const config = loadConfig();
-        convertImagesToWebp(config);
+        runProcess(config);
     } catch (error: any) {
         console.error(error.message);
         process.exit(1);
@@ -69,4 +96,5 @@ if (require.main === module) {
     run();
 }
 
-export { convertImagesToWebp, loadConfig, run };
+// export { convertImagesToWebp, runProcess, loadConfig, run };
+export { run };
