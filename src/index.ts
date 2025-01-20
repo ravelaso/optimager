@@ -1,3 +1,6 @@
+#!/usr/bin/env node
+"use strict";
+
 import fs from 'fs-extra';
 import sharp from 'sharp';
 import path from 'path';
