@@ -1,0 +1,27 @@
+{
+  "name": "optimager",
+  "version": "1.0.0",
+  "keywords": [],
+  "author": "@ravelaso",
+  "license": "MIT",
+  "description": "Optimizes Images converting them to webp, it uses Sharp to convert images.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "convertimage": "node dist/index.js"
+  },
+  "bin": {
+    "optimager": "dist/index.js"
+  },
+
+  "dependencies": {
+    "fs-extra": "^11.3.0",
+    "sharp": "^0.33.5"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.4",
+    "@types/node": "^22.10.7",
+    "typescript": "^5.7.3"
+  }
+}

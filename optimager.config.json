@@ -1,0 +1,4 @@
+{
+    "inputFolders": ["src/content/privImages", "src/content/pubImages"],
+    "outputFolders": ["public/privImages", "public/pubImages"]
+}
