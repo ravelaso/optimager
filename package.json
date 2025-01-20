@@ -16,10 +16,10 @@
   },
   "scripts": {
     "build": "tsc",
-    "convertimage": "node dist/index.js"
+    "optimager": "node dist/index.js"
   },
   "bin": {
-    "optimager": "dist/index.js"
+    "optimager": "./dist/index.js"
   },
   "dependencies": {
     "fs-extra": "^11.3.0",

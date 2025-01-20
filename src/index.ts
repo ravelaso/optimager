@@ -51,8 +51,14 @@ function loadConfig(): OptimagerConfig {
 }
 
 function run(): void {
-    const config = loadConfig();
-    convertImagesToWebp(config);
+    try {
+        const config = loadConfig();
+        convertImagesToWebp(config);
+    } catch (error: any) {
+        console.error(error.message);
+        process.exit(1);
+    }
+    process.exit(0);
 }
 
 // Execute the script if run directly from the command line
