@@ -11,9 +11,6 @@
     "type": "git",
     "url": "https://github.com/ravelaso/optimager.git"
   },
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "scripts": {
     "build": "tsc",
     "optimager": "node dist/index.js"
