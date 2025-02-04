@@ -13,7 +13,9 @@ interface OptimagerConfig {
 }
 
 function cleanFolders(Folders: string[]): void {
+    
     Folders.forEach((folder) => {
+        console.log("Cleaning folder: " + folder )
         if (fs.existsSync(folder)) {
             fs.readdirSync(folder).forEach((file) => {
                 fs.unlinkSync(`${folder}/${file}`);
@@ -21,7 +23,6 @@ function cleanFolders(Folders: string[]): void {
         }
     });
 }
-
 
 function runProcess(config: OptimagerConfig): void {
     const { inputFolders, outputFolders, cleanInput, cleanOutput } = config;
